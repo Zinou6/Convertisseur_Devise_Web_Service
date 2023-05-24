@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.2 (UNKNOWN-17d59c9; 2018-09-26T15:16:30-0700) JAXWS-RI/2.3.1 JAXWS-API/2.3.1 JAXB-RI/2.3.1 JAXB-API/2.3.1 svn-revision#unknown. --><xs:schema xmlns:tns="http://ConvertMoneyWs/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ConvertMoneyWs/">
+
+<xs:element name="Covert_Monnaie" type="tns:Covert_Monnaie"/>
+
+<xs:element name="Covert_MonnaieResponse" type="tns:Covert_MonnaieResponse"/>
+
+<xs:element name="DocumentException" type="tns:DocumentException"/>
+
+<xs:element name="FileNotFoundException" type="tns:FileNotFoundException"/>
+
+<xs:element name="IOException" type="tns:IOException"/>
+
+<xs:element name="SQLException" type="tns:SQLException"/>
+
+<xs:element name="connection" type="tns:connection"/>
+
+<xs:element name="connectionNetwork" type="tns:connectionNetwork"/>
+
+<xs:element name="connectionNetworkResponse" type="tns:connectionNetworkResponse"/>
+
+<xs:element name="connectionResponse" type="tns:connectionResponse"/>
+
+<xs:element name="cours" type="tns:cours"/>
+
+<xs:element name="coursResponse" type="tns:coursResponse"/>
+
+<xs:element name="historique" type="tns:historique"/>
+
+<xs:element name="historiqueResponse" type="tns:historiqueResponse"/>
+
+<xs:element name="lastConv" type="tns:lastConv"/>
+
+<xs:element name="lastConvResponse" type="tns:lastConvResponse"/>
+
+<xs:element name="networkCoursORlastCours" type="tns:networkCoursORlastCours"/>
+
+<xs:element name="networkCoursORlastCoursResponse" type="tns:networkCoursORlastCoursResponse"/>
+
+<xs:complexType name="connection">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="connectionResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="cours">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="coursResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="SQLException">
+<xs:sequence>
+<xs:element name="SQLState" type="xs:string" minOccurs="0"/>
+<xs:element name="errorCode" type="xs:int"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="nextException" type="tns:sqlException" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sqlException">
+<xs:complexContent>
+<xs:extension base="tns:exception">
+<xs:sequence>
+<xs:element name="nextException" type="tns:sqlException" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="exception">
+<xs:complexContent>
+<xs:extension base="tns:throwable">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="throwable">
+<xs:sequence>
+<xs:element name="stackTrace" type="tns:stackTraceElement" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stackTraceElement" final="extension restriction">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="FileNotFoundException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DocumentException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="IOException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="historique">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="historiqueResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="connectionNetwork">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="connectionNetworkResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="Covert_Monnaie">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Covert_MonnaieResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="networkCoursORlastCours">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="networkCoursORlastCoursResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="lastConv">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="lastConvResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:conversion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="conversion">
+<xs:sequence>
+<xs:element name="Type" type="xs:string" minOccurs="0"/>
+<xs:element name="Date" type="xs:string" minOccurs="0"/>
+<xs:element name="Montant" type="xs:double" minOccurs="0"/>
+<xs:element name="Cours" type="xs:double" minOccurs="0"/>
+<xs:element name="Date_Cours" type="xs:string" minOccurs="0"/>
+<xs:element name="Montant_convert" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
